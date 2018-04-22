@@ -6,20 +6,24 @@
   "scripts": {
     "test": "jest --no-cache"
   },
-    "jest": {
-      "collectCoverageFrom": [
-        "lib/*.js",
-        "!lib/globals.js"
-      ]
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/al66/imicros-rules-engine.git"
-    },
-    "keywords": [
-        "rules engine",
-        "execution"
-    ],
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/*.js",
+      "!lib/globals.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/al66/imicros-rules-engine.git"
+  },
+  "keywords": [
+    "rules engine",
+    "execution"
+  ],
   "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "moleculer": "^0.12.3"
+  }
 }
