@@ -1,5 +1,6 @@
 /**
  * @license MIT, imicros.de (c) 2018 Andreas Leinen
  */
-'use strict';
+"use strict";
 
+require("./lib/service");
