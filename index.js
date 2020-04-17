@@ -1,6 +1,8 @@
 /**
- * @license MIT, imicros.de (c) 2018 Andreas Leinen
+ * @license MIT, imicros.de (c) 2020 Andreas Leinen
  */
 "use strict";
 
-require("./lib/service");
+module.exports = {
+    Rules: require("./lib/rules")
+};

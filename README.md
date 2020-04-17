@@ -1,5 +1,39 @@
-# imicros-rules-engine
+# imicros-rules
+[![Build Status](https://travis-ci.org/al66/imicros-rules.svg?branch=master)](https://travis-ci.org/al66/imicros-rules)
+[![Coverage Status](https://coveralls.io/repos/github/al66/imicros-rules/badge.svg?branch=master)](https://coveralls.io/github/al66/imicros-rules?branch=master)
 
-The rules engine compiles rulesets written in imicros rules language to javascript functions and serves them under a generated uid as a service.
+[Moleculer](https://github.com/moleculerjs/moleculer) service for rulesset execution
+
+Uses [imicros-rules-compiler](https://github.com/al66/imicros-rules-compiler) as rules intepreter.
+
+## Installation
+```
+$ npm install imicros-rules --save
+```
+## Dependencies
+Required mixins (or a similar mixin with the same notation):
+- [imicros-acl](https://github.com/al66/imicros-acl)
+- [imciros-minio](https://github.com/al66/imicros-minio)
+
+# Usage
+## Usage template service
+```js
+const { ServiceBroker } = require("moleculer");
+const { AclMixin } = require("imicros-acl");
+const { MinioMixin } = require("imicros-minio");
+const { Rules } = require("imicros-rules");
+
+broker = new ServiceBroker({
+    logger: console
+});
+broker.createService(Rules, Object.assign({ 
+    mixins: [MinioMixin(), AclMixin]
+}));
+broker.start();
+```
+## Actions rules service
+- evaluate { name, data } => result  
+
+
 
 
