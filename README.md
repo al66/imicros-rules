@@ -16,7 +16,7 @@ Required mixins (or a similar mixin with the same notation):
 - [imciros-minio](https://github.com/al66/imicros-minio)
 
 # Usage
-## Usage template service
+## Usage rules service
 ```js
 const { ServiceBroker } = require("moleculer");
 const { AclMixin } = require("imicros-acl");
@@ -32,8 +32,15 @@ broker.createService(Rules, Object.assign({
 broker.start();
 ```
 ## Actions rules service
-- evaluate { name, data } => result  
+- eval { name, data } => result  
 
-
-
-
+### Example eval
+```js
+// path/to/ruleset/test.rules: "@@ @ user.age :: >= 16 & <= 35 => result := 'true' @@"
+let params = {
+	name: "path/to/ruleset/test.rules",
+	data: { user: { age: 25 } }
+};
+let res = await broker.call("rules.eval", params, opts)
+// res = { result: 'true' }
+```
