@@ -1,6 +1,6 @@
 {
   "name": "imicros-rules",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Execution service for rulesets",
   "main": "index.js",
   "scripts": {
