@@ -39,6 +39,6 @@
     "moleculer": "^0.14.5"
   },
   "dependencies": {
-    "imicros-rules-compiler": "^0.0.8"
+    "imicros-rules-compiler": "^0.0.9"
   }
 }
