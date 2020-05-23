@@ -2,7 +2,6 @@
 
 const { ServiceBroker } = require("moleculer");
 const { Rules } = require("../index");
-const { AclMixin } = require("imicros-acl");
 
 const timestamp = Date.now();
 
@@ -35,7 +34,7 @@ const Store = (/*options*/) => { return {
 
 describe("Test rules service", () => {
 
-	let broker, service;
+    let broker, service;
     beforeAll(() => {
     });
     
@@ -51,7 +50,7 @@ describe("Test rules service", () => {
             });
             service = await broker.createService(Rules, Object.assign({ 
                 name: "rules",
-                mixins: [Store(), AclMixin]
+                mixins: [Store()]
             }));
             await broker.start();
             expect(service).toBeDefined();
@@ -88,7 +87,7 @@ describe("Test rules service", () => {
 
             return broker.call("rules.eval", params, opts).then(res => {
                 expect(res).toBeDefined();
-                expect(res.result).toEqual('true');
+                expect(res.result).toEqual("true");
             });
                 
         });
@@ -101,6 +100,6 @@ describe("Test rules service", () => {
             await broker.stop();
             expect(broker).toBeDefined();
         });
-    });    
-    	
+    });
+
 });

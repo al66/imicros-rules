@@ -33,10 +33,8 @@
   "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^3.0.11",
-    "imicros-acl": "0.0.4",
-    "jest": "^25.3.0",
-    "moleculer": "^0.14.5"
+    "jest": "^26.0.1",
+    "moleculer": "^0.14.6"
   },
   "dependencies": {
     "imicros-rules-compiler": "^0.0.9"
