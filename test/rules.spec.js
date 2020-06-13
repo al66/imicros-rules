@@ -94,6 +94,38 @@ describe("Test rules service", () => {
         
     });
 
+    describe("Test parse to json", () => {
+
+        let opts;
+        
+        beforeEach(() => {
+            opts = { 
+                meta: { 
+                    acl: {
+                        accessToken: "this is the access token",
+                        ownerId: `g1-${timestamp}`,
+                        unrestricted: true
+                    }, 
+                    user: { 
+                        id: `1-${timestamp}` , 
+                        email: `1-${timestamp}@host.com` }
+                } 
+            };
+        });
+        
+        it("it should parse ruleset to json", async () => {
+            let params = {
+                ruleset: "@@ @ user.age :: >= 16 & <= 35 => result := 'true' @@"
+            };
+            return broker.call("rules.json", params, opts).then(res => {
+                expect(res).toBeDefined();
+                expect(res.input).toContainEqual({ label: "", source: "user.age", type: "", array: false});
+            });
+                
+        });
+        
+    });
+
     describe("Test stop broker", () => {
         it("should stop the broker", async () => {
             expect.assertions(1);
