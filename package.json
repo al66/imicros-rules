@@ -1,6 +1,6 @@
 {
   "name": "imicros-rules",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Execution service for rulesets",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,6 @@
     "moleculer": "^0.14.10"
   },
   "dependencies": {
-    "imicros-rules-compiler": "^0.0.13"
+    "imicros-rules-compiler": "^0.0.14"
   }
 }

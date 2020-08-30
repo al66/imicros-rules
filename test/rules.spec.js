@@ -83,7 +83,7 @@ describe("Test rules service", () => {
                 data: { user: { age: 25 } }
             };
             let internal = Buffer.from(opts.meta.acl.ownerId + "~" + params.name).toString("base64");
-            globalStore[internal] = "@@ @ user.age :: >= 16 & <= 35 => result := 'true' @@";
+            globalStore[internal] = "@@ > result[object] #Result# @ user.age :: >= 16 & <= 35 => result := 'true' @@";
 
             return broker.call("rules.eval", params, opts).then(res => {
                 expect(res).toBeDefined();
@@ -115,7 +115,7 @@ describe("Test rules service", () => {
         
         it("it should parse ruleset to json", async () => {
             let params = {
-                ruleset: "@@ @ user.age :: >= 16 & <= 35 => result := 'true' @@"
+                ruleset: "@@ > result[object] #Result# @ user.age :: >= 16 & <= 35 => result := 'true' @@"
             };
             return broker.call("rules.json", params, opts).then(res => {
                 expect(res).toBeDefined();
